@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: public-api
-
+namespace: grid
 images:
   - name: gcr.io/urbint-1259/grid-api
-    newTag: 1743186480-88ecb32
+    newTag: 1719593069-c822b7785
