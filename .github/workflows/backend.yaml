@@ -1,45 +1,8 @@
-name: Backend Build Pipeline
+name: testing
 on:
-  push:
-    branches:
-      # - master
-      - main
-      - 'test'
-     
-    
-  pull_request:
-    branches:
-      - main
-      - 'test'
-    
-
-
   workflow_dispatch:
-    inputs: 
-      environment:
-        description: 'Select environment for manual deployment'
-        required: true
-        type: choice
-        options:
-          - prod
-
-  init:
-    runs-on: [self-hosted, linux, arc-runner-org-grid-dev]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
-        id: auth
-        with:
-          credentials_json: "${{ secrets.GCR_SA_KEY }}"
-          token_format: "access_token"
-      
-      - name: Log into Google Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: gcr.io
-          username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }}
-          logout: false
-      
+      - run: echo "Deploying to staging"
