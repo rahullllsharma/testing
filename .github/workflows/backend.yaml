@@ -1,8 +1,18 @@
 name: testing
 on:
   workflow_dispatch:
+    inputs: 
+      environment:
+        description: 'Select environment for manual deployment'
+        required: true
+        type: choice
+        options:
+          - prod
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deploying to staging"
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - run:  echo "Done"
