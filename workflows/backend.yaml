@@ -4,11 +4,13 @@ on:
     branches:
       # - master
       - main
+      - 'test/**/*'
      
     
   pull_request:
     branches:
       - main
+      - 'test/**/*'
     
     paths:
       - 'backend/**/*'
