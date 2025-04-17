@@ -4,19 +4,15 @@ on:
     branches:
       # - master
       - main
-      - 'test/**/*'
+      - 'test'
      
     
   pull_request:
     branches:
       - main
-      - 'test/**/*'
+      - 'test'
     
-    paths:
-      - 'backend/**/*'
-      - 'python/**/*'
-      - 'test/**/*'
-      - 'tools/staging/**/*'
+
 
   workflow_dispatch:
     inputs: 
